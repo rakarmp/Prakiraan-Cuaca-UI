@@ -1,39 +1,64 @@
-import {IonCard, IonCardContent, IonCardSubtitle, IonCardTitle, IonCol, IonGrid, IonIcon, IonNote, IonRow, IonSkeletonText, IonText, IonThumbnail } from "@ionic/react";
+import {
+  IonCard,
+  IonCardContent,
+  IonCardSubtitle,
+  IonCardTitle,
+  IonCol,
+  IonGrid,
+  IonIcon,
+  IonNote,
+  IonRow,
+  IonSkeletonText,
+  IonText,
+  IonThumbnail,
+} from "@ionic/react";
 import { pulseOutline, sunnyOutline, thermometerOutline } from "ionicons/icons";
 
 export const SkeletonDashboard = () => (
-
   <IonGrid>
     <IonCard>
       <IonCardContent className="ion-text-center">
-      
         <IonText color="primary">
           <h1>
-            <IonSkeletonText animated style={{height: "2rem", width: "90%"}} />
+            <IonSkeletonText
+              animated
+              style={{ height: "2rem", width: "90%" }}
+            />
           </h1>
         </IonText>
 
         <div className="ion-margin-top">
-          
           <IonThumbnail>
-            <IonSkeletonText animated style={{width: "2rem", height: "2rem"}} />
+            <IonSkeletonText
+              animated
+              style={{ width: "2rem", height: "2rem" }}
+            />
           </IonThumbnail>
-          
+
           <IonText color="dark">
-            <h1 style={{fontWeight: "bold"}}>
-              <IonSkeletonText animated style={{height: "2rem", width: "90%"}} />
+            <h1 style={{ fontWeight: "bold" }}>
+              <IonSkeletonText
+                animated
+                style={{ height: "2rem", width: "90%" }}
+              />
             </h1>
           </IonText>
-          
+
           <IonText color="medium">
             <p>
-              <IonSkeletonText animated style={{height: "2rem", width: "90%"}} />
+              <IonSkeletonText
+                animated
+                style={{ height: "2rem", width: "90%" }}
+              />
             </p>
           </IonText>
         </div>
 
-        <IonCardTitle style={{fontSize: "3rem"}} className="ion-margin-top">
-          <IonSkeletonText animated style={{height: "3rem", width: "30%", textAlign: "center"}} />
+        <IonCardTitle style={{ fontSize: "3rem" }} className="ion-margin-top">
+          <IonSkeletonText
+            animated
+            style={{ height: "3rem", width: "30%", textAlign: "center" }}
+          />
         </IonCardTitle>
 
         <IonGrid className="ion-margin-top">
@@ -41,13 +66,21 @@ export const SkeletonDashboard = () => (
             <IonCol size="6">
               <IonRow className="ion-justify-content-center ion-align-items-center">
                 <IonCol size="3">
-                  <img alt="wind" src="/assets/wind.png" height="32" width="32" />
+                  <img
+                    alt="wind"
+                    src="/assets/wind.png"
+                    height="32"
+                    width="32"
+                  />
                 </IonCol>
 
                 <IonCol size="9">
-                  <IonCardSubtitle>Wind</IonCardSubtitle>
+                  <IonCardSubtitle>Angin</IonCardSubtitle>
                   <IonNote>
-                    <IonSkeletonText animated style={{height: "2rem", width: "90%"}} />
+                    <IonSkeletonText
+                      animated
+                      style={{ height: "2rem", width: "90%" }}
+                    />
                   </IonNote>
                 </IonCol>
               </IonRow>
@@ -56,13 +89,20 @@ export const SkeletonDashboard = () => (
             <IonCol size="6">
               <IonRow className="ion-justify-content-center ion-align-items-center">
                 <IonCol size="3">
-                  <IonIcon icon={thermometerOutline} color="medium" style={{fontSize: "2rem"}} />
+                  <IonIcon
+                    icon={thermometerOutline}
+                    color="medium"
+                    style={{ fontSize: "2rem" }}
+                  />
                 </IonCol>
 
                 <IonCol size="9">
-                  <IonCardSubtitle>Feels like</IonCardSubtitle>
+                  <IonCardSubtitle>Suhu</IonCardSubtitle>
                   <IonNote>
-                    <IonSkeletonText animated style={{height: "2rem", width: "90%"}} />
+                    <IonSkeletonText
+                      animated
+                      style={{ height: "2rem", width: "90%" }}
+                    />
                   </IonNote>
                 </IonCol>
               </IonRow>
@@ -73,13 +113,20 @@ export const SkeletonDashboard = () => (
             <IonCol size="6">
               <IonRow className="ion-justify-content-center ion-align-items-center">
                 <IonCol size="3">
-                  <IonIcon icon={sunnyOutline} color="medium" style={{fontSize: "2rem"}} />
+                  <IonIcon
+                    icon={sunnyOutline}
+                    color="medium"
+                    style={{ fontSize: "2rem" }}
+                  />
                 </IonCol>
 
                 <IonCol size="9">
-                  <IonCardSubtitle>Index UV</IonCardSubtitle>
+                  <IonCardSubtitle>Indeks UV</IonCardSubtitle>
                   <IonNote>
-                    <IonSkeletonText animated style={{height: "2rem", width: "90%"}} />
+                    <IonSkeletonText
+                      animated
+                      style={{ height: "2rem", width: "90%" }}
+                    />
                   </IonNote>
                 </IonCol>
               </IonRow>
@@ -88,13 +135,20 @@ export const SkeletonDashboard = () => (
             <IonCol size="6">
               <IonRow className="ion-justify-content-center ion-align-items-center">
                 <IonCol size="3">
-                  <IonIcon icon={pulseOutline} color="medium" style={{fontSize: "2rem"}} />
+                  <IonIcon
+                    icon={pulseOutline}
+                    color="medium"
+                    style={{ fontSize: "2rem" }}
+                  />
                 </IonCol>
 
                 <IonCol size="9">
-                  <IonCardSubtitle>Pressure</IonCardSubtitle>
+                  <IonCardSubtitle>Tekanan</IonCardSubtitle>
                   <IonNote>
-                    <IonSkeletonText animated style={{height: "2rem", width: "90%"}} />
+                    <IonSkeletonText
+                      animated
+                      style={{ height: "2rem", width: "90%" }}
+                    />
                   </IonNote>
                 </IonCol>
               </IonRow>

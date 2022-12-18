@@ -1,42 +1,51 @@
-import { IonButton, IonButtons, IonCol, IonContent, IonHeader, IonIcon, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import {
+  IonButton,
+  IonButtons,
+  IonCol,
+  IonContent,
+  IonHeader,
+  IonIcon,
+  IonPage,
+  IonRow,
+  IonTitle,
+  IonToolbar,
+} from "@ionic/react";
 
-import { Geolocation } from '@capacitor/geolocation';
-import { useEffect, useState } from 'react';
-import { SkeletonDashboard } from '../components/SkeletonDashboard';
-import { refreshOutline } from 'ionicons/icons';
-import { CurrentWeather } from '../components/CurrentWeather';
+import { Geolocation } from "@capacitor/geolocation";
+import { useEffect, useState } from "react";
+import { SkeletonDashboard } from "../components/SkeletonDashboard";
+import { refreshOutline } from "ionicons/icons";
+import { CurrentWeather } from "../components/CurrentWeather";
 
 const Tab1 = () => {
-
   const [currentWeather, setCurrentWeather] = useState(false);
 
   useEffect(() => {
-
     getCurrentPosition();
   }, []);
 
   const getCurrentPosition = async () => {
-
     setCurrentWeather(false);
     const coordinates = await Geolocation.getCurrentPosition();
     getAddress(coordinates.coords);
-  }
+  };
 
   const getAddress = async (coords) => {
+    const query = `${coords.latitude},${coords.longitude}`;
+    const response = await fetch(
+      `https://api.weatherapi.com/v1/current.json?key=f93eb660b2424258bf5155016210712&q=${query}`
+    );
 
-    const query = `${ coords.latitude },${ coords.longitude}`;
-    const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=f93eb660b2424258bf5155016210712&q=${ query }`);
-    
     const data = await response.json();
     console.log(data);
     setCurrentWeather(data);
-  }
+  };
 
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>My Weather</IonTitle>
+          <IonTitle>Check Cuaca App</IonTitle>
 
           <IonButtons slot="end">
             <IonButton onClick={() => getCurrentPosition()}>
@@ -46,7 +55,6 @@ const Tab1 = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Dashboard</IonTitle>
@@ -55,12 +63,16 @@ const Tab1 = () => {
 
         <IonRow className="ion-margin-start ion-margin-end ion-justify-content-center ion-text-center">
           <IonCol size="12">
-            <h4>Here's your location based weather</h4>
+            <h4>Perkiraan Cuaca Di Daerah Kamu</h4>
           </IonCol>
         </IonRow>
 
-        <div style={{marginTop: "-1.5rem"}}>
-          {currentWeather ? <CurrentWeather currentWeather={currentWeather} /> : <SkeletonDashboard />}
+        <div style={{ marginTop: "-1.5rem" }}>
+          {currentWeather ? (
+            <CurrentWeather currentWeather={currentWeather} />
+          ) : (
+            <SkeletonDashboard />
+          )}
         </div>
       </IonContent>
     </IonPage>
